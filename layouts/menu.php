@@ -100,6 +100,10 @@
             <a class="withripple <?php echo $menu3[14] ?>" href="<?php echo $lvl ?>ekstraksi-fitur/punctuation">
               <i class="fa fa-arrow-circle-right"></i> YEAR</a>
           </li>
+          <li>
+            <a class="withripple <?php echo $menu3[15] ?>" href="<?php echo $lvl ?>ekstraksi-fitur/hasil">
+              <i class="fa fa-arrow-circle-right"></i> HASIL</a>
+          </li>
         </ul>
       </li>
       <li id="e21">

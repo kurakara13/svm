@@ -3,7 +3,7 @@
 /**
  *
  */
- 
+
 class EkstraksiFitur
 {
 
@@ -283,6 +283,40 @@ class EkstraksiFitur
 
   function year($data)
   {
+
+  }
+
+  function hasil($data)
+  {
+    $extraction = new EkstraksiFitur;
+    $initcaps = $extraction->initcaps($data);
+    $allcaps = $extraction->allcaps($data);
+    $containsdigit = $extraction->containsdigit($data);
+    $punctuation = $extraction->punctuation($data);
+    $alldigit = $extraction->alldigit($data);
+    $containsdot = $extraction->containsdots($data);
+    $lowercase = $extraction->lowercase($data);
+    $eightdigit = $extraction->eightdigit($data);
+    $word = $extraction->word($data);
+
+    $array = [];
+    $a = 1;
+    for ($i=0; $i < count($initcaps); $i++) {
+      // code...
+      $array[$i] = array(
+                          'f(1)' => number_format($initcaps[$i]['hasil']/$initcaps[$i]['jumlahKata'],2),
+                          'f(2)' => number_format($allcaps[$i]['hasil']/$allcaps[$i]['jumlahKata'],2),
+                          'f(3)' => number_format($containsdigit[$i]['hasil']/$containsdigit[$i]['jumlahKata'],2),
+                          'f(4)' => number_format($alldigit[$i]['hasil']/$alldigit[$i]['jumlahKata'],2),
+                          'f(5)' => number_format($containsdot[$i]['hasil']/$containsdot[$i]['jumlahKata'],2),
+                          'f(6)' => number_format($lowercase[$i]['hasil']/$lowercase[$i]['jumlahKata'],2),
+                          'f(7)' => number_format($punctuation[$i]['hasil']/$punctuation[$i]['jumlahKata'],2),
+                          'f(8)' => number_format($eightdigit[$i]['hasil']/$eightdigit[$i]['jumlahKata'],2),
+                          'f(9)' => number_format($word[$i]['hasil']/$word[$i]['jumlahKata'],2)
+                        );
+    }
+
+    return $array;
 
   }
 }

@@ -310,36 +310,91 @@
       echo "<tr><td colspan='2' style='text-align:center'>Dokumen ".($a++)."</td></tr>";
     }
 
-  }elseif($_POST['page'] == 'test') {
+  }elseif($_POST['page'] == 'hasil') {
     $data = $_POST['data'];
 
-    $query = mysqli_query($conn, "select * from data_training where id = 59");
-    $row = mysqli_fetch_array($query);
-    // $replace = '';
-    // $search = array("\t","\n");
-    // $word = str_replace($search, $replace, $row['text']);
-    // $data = explode(' ', $word);
-    // echo "<table><tr><th>Kata</th><th></th><th>Hasil</th></tr>";
-    // for ($i=0; $i < count($data) ; $i++) {
-    //   echo "<tr><td>".$data[$i]."</td><td>-</td><td>".ctype_lower($data[$i])."</td></tr>";
-    // }
-    //
-    // echo "</table>";
-
+    $query = mysqli_query($conn, "select * from data_training limit $data");
+    $a = 1;
+    $b = 1;
+    while($row = mysqli_fetch_array($query)){
     $dataFilter = Filtering::perhitungan($row['text']);
     $dataSplitting = Spliting::perhitungan($dataFilter);
-    $ekstraksi_fitur = EkstraksiFitur::line($dataSplitting);
-    echo "<table>";
-            "<tr>
-              <td rowspan='".(count($dataSplitting)+1)."'><pre>".$row['text']."</pre></td>
-              <td colspan='2'>Hasil</td>
-            </tr>";
-    // // // echo '<pre>'.$row['text'].'</pre>';
+    $ekstraksi_fitur = EkstraksiFitur::hasil($dataSplitting);
     for ($i=0; $i < count($dataSplitting) ; $i++) {
-    //   // echo $dataSplitting[$i]."<br>";
-      echo "<tr><td style='border:1px solid'> ".$dataSplitting[$i]." </td><td style='text-align:center;border:1px solid'>S(".($i+1).")</td><td style='border:1px solid'>scoref1 = ".$ekstraksi_fitur[$i]['hasil']." / ".$ekstraksi_fitur[$i]['jumlahKata']." = ".number_format($ekstraksi_fitur[$i]['hasil']/$ekstraksi_fitur[$i]['jumlahKata'],2)." </td></tr>";
-    //   // echo "<tr><td style='text-align:center'>S(".($i+1).")</td><td>".$dataSplitting[$i]." </td></tr>";
-    }
+        echo "<tr>
+                <td>".$dataSplitting[$i]."</td>
+                <td>".$ekstraksi_fitur[$i]['f(1)']."</td>
+                <td>".$ekstraksi_fitur[$i]['f(2)']."</td>
+                <td>".$ekstraksi_fitur[$i]['f(3)']."</td>
+                <td>".$ekstraksi_fitur[$i]['f(4)']."</td>
+                <td>".$ekstraksi_fitur[$i]['f(5)']."</td>
+                <td>".$ekstraksi_fitur[$i]['f(6)']."</td>
+                <td>".$ekstraksi_fitur[$i]['f(7)']."</td>
+                <td>".$ekstraksi_fitur[$i]['f(8)']."</td>
+                <td>".$ekstraksi_fitur[$i]['f(9)']."</td>
+              </tr>";
+        $a++;
+      }
+      echo "<tr><td colspan='10' style='text-align:center'>Dokumen ".($b++)."</td></tr>";
+  }
+
+  }elseif($_POST['page'] == 'test') {
+
+    $query = mysqli_query($conn, "select * from data_training limit 1");
+    $a = 1;
+    while($row = mysqli_fetch_array($query)){
+    $dataFilter = Filtering::perhitungan($row['text']);
+    $dataSplitting = Spliting::perhitungan($dataFilter);
+    $ekstraksi_fitur = EkstraksiFitur::hasil($dataSplitting);
+    for ($i=0; $i < count($dataSplitting) ; $i++) {
+        echo "<tr>
+                <td>".$dataSplitting[$i]."</td>
+                <td>".$ekstraksi_fitur[$i]['f(1)']."</td>
+                <td>".$ekstraksi_fitur[$i]['f(2)']."</td>
+                <td>".$ekstraksi_fitur[$i]['f(3)']."</td>
+                <td>".$ekstraksi_fitur[$i]['f(4)']."</td>
+                <td>".$ekstraksi_fitur[$i]['f(5)']."</td>
+                <td>".$ekstraksi_fitur[$i]['f(6)']."</td>
+                <td>".$ekstraksi_fitur[$i]['f(7)']."</td>
+                <td>".$ekstraksi_fitur[$i]['f(8)']."</td>
+                <td>".$ekstraksi_fitur[$i]['f(9)']."</td>
+              </tr>";
+        $a++;
+      }
+      echo "<tr><td colspan='2' style='text-align:center'>Dokumen ".($a++)."</td></tr>";
+  }
+    // $command = escapeshellcmd('python qudratic_programming.py');
+    // $output = shell_exec($command);
+    // var_dump($output);
+    // $data = $_POST['data'];
+    //
+    // $query = mysqli_query($conn, "select * from data_training where id = 59");
+    // $row = mysqli_fetch_array($query);
+    // // $replace = '';
+    // // $search = array("\t","\n");
+    // // $word = str_replace($search, $replace, $row['text']);
+    // // $data = explode(' ', $word);
+    // // echo "<table><tr><th>Kata</th><th></th><th>Hasil</th></tr>";
+    // // for ($i=0; $i < count($data) ; $i++) {
+    // //   echo "<tr><td>".$data[$i]."</td><td>-</td><td>".ctype_lower($data[$i])."</td></tr>";
+    // // }
+    // //
+    // // echo "</table>";
+    //
+    // $dataFilter = Filtering::perhitungan($row['text']);
+    // $dataSplitting = Spliting::perhitungan($dataFilter);
+    // $ekstraksi_fitur = EkstraksiFitur::line($dataSplitting);
+    // echo "<table>";
+    //         "<tr>
+    //           <td rowspan='".(count($dataSplitting)+1)."'><pre>".$row['text']."</pre></td>
+    //           <td colspan='2'>Hasil</td>
+    //         </tr>";
+    // // // // echo '<pre>'.$row['text'].'</pre>';
+    // for ($i=0; $i < count($dataSplitting) ; $i++) {
+    // //   // echo $dataSplitting[$i]."<br>";
+    //   echo "<tr><td style='border:1px solid'> ".$dataSplitting[$i]." </td><td style='text-align:center;border:1px solid'>S(".($i+1).")</td><td style='border:1px solid'>scoref1 = ".$ekstraksi_fitur[$i]['hasil']." / ".$ekstraksi_fitur[$i]['jumlahKata']." = ".number_format($ekstraksi_fitur[$i]['hasil']/$ekstraksi_fitur[$i]['jumlahKata'],2)." </td></tr>";
+    // //   // echo "<tr><td style='text-align:center'>S(".($i+1).")</td><td>".$dataSplitting[$i]." </td></tr>";
+    // }
     // echo "</table>";
 
   }
