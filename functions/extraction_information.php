@@ -3,6 +3,7 @@
   include "preprocessing/spliting.php";
   include "preprocessing/filtering.php";
   include "ekstraksi_fitur.php";
+  include "svm.php";
   include "config.php";
 
   if($_POST['page'] == 'image-to-text') {
@@ -341,61 +342,14 @@
   }elseif($_POST['page'] == 'test') {
 
     $query = mysqli_query($conn, "select * from data_training limit 1");
-    $a = 1;
-    while($row = mysqli_fetch_array($query)){
-    $dataFilter = Filtering::perhitungan($row['text']);
-    $dataSplitting = Spliting::perhitungan($dataFilter);
-    $ekstraksi_fitur = EkstraksiFitur::hasil($dataSplitting);
-    for ($i=0; $i < count($dataSplitting) ; $i++) {
-        echo "<tr>
-                <td>".$dataSplitting[$i]."</td>
-                <td>".$ekstraksi_fitur[$i]['f(1)']."</td>
-                <td>".$ekstraksi_fitur[$i]['f(2)']."</td>
-                <td>".$ekstraksi_fitur[$i]['f(3)']."</td>
-                <td>".$ekstraksi_fitur[$i]['f(4)']."</td>
-                <td>".$ekstraksi_fitur[$i]['f(5)']."</td>
-                <td>".$ekstraksi_fitur[$i]['f(6)']."</td>
-                <td>".$ekstraksi_fitur[$i]['f(7)']."</td>
-                <td>".$ekstraksi_fitur[$i]['f(8)']."</td>
-                <td>".$ekstraksi_fitur[$i]['f(9)']."</td>
-              </tr>";
-        $a++;
-      }
-      echo "<tr><td colspan='2' style='text-align:center'>Dokumen ".($a++)."</td></tr>";
-  }
-    // $command = escapeshellcmd('python qudratic_programming.py');
-    // $output = shell_exec($command);
-    // var_dump($output);
-    // $data = $_POST['data'];
+    $row = mysqli_fetch_array($query);
+    // $data = array(
+    //     array(-1, 1 => 0.43, 3 => 0.12, 9284 => 0.2),
+    //     array(1, 1 => 0.22, 5 => 0.01, 94 => 0.11),
+    // );
     //
-    // $query = mysqli_query($conn, "select * from data_training where id = 59");
-    // $row = mysqli_fetch_array($query);
-    // // $replace = '';
-    // // $search = array("\t","\n");
-    // // $word = str_replace($search, $replace, $row['text']);
-    // // $data = explode(' ', $word);
-    // // echo "<table><tr><th>Kata</th><th></th><th>Hasil</th></tr>";
-    // // for ($i=0; $i < count($data) ; $i++) {
-    // //   echo "<tr><td>".$data[$i]."</td><td>-</td><td>".ctype_lower($data[$i])."</td></tr>";
-    // // }
-    // //
-    // // echo "</table>";
-    //
-    // $dataFilter = Filtering::perhitungan($row['text']);
-    // $dataSplitting = Spliting::perhitungan($dataFilter);
-    // $ekstraksi_fitur = EkstraksiFitur::line($dataSplitting);
-    // echo "<table>";
-    //         "<tr>
-    //           <td rowspan='".(count($dataSplitting)+1)."'><pre>".$row['text']."</pre></td>
-    //           <td colspan='2'>Hasil</td>
-    //         </tr>";
-    // // // // echo '<pre>'.$row['text'].'</pre>';
-    // for ($i=0; $i < count($dataSplitting) ; $i++) {
-    // //   // echo $dataSplitting[$i]."<br>";
-    //   echo "<tr><td style='border:1px solid'> ".$dataSplitting[$i]." </td><td style='text-align:center;border:1px solid'>S(".($i+1).")</td><td style='border:1px solid'>scoref1 = ".$ekstraksi_fitur[$i]['hasil']." / ".$ekstraksi_fitur[$i]['jumlahKata']." = ".number_format($ekstraksi_fitur[$i]['hasil']/$ekstraksi_fitur[$i]['jumlahKata'],2)." </td></tr>";
-    // //   // echo "<tr><td style='text-align:center'>S(".($i+1).")</td><td>".$dataSplitting[$i]." </td></tr>";
-    // }
-    // echo "</table>";
-
+    // $svm = new SVM();
+    // $model = $svm->train($data);
+    echo SVM::init($row['text']);
   }
  ?>

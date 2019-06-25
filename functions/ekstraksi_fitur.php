@@ -150,8 +150,15 @@ class EkstraksiFitur
       $word = Tokenizing::perhitungan($data[$i]);
 
       for ($a=0; $a < count($word) ; $a++) {
-        if(!ctype_upper($word[$a]) && !ctype_digit($word[$a])){
-          $hasil = $hasil + 1;
+         // && )
+        if(!ctype_upper($word[$a])){
+          if(ctype_digit($word[$a])){
+            if(strlen($word[$a]) != 4){
+              $hasil = $hasil + 1;
+            }
+          }else {
+            $hasil = $hasil + 1;
+          }
         }
         $jumlahKata = $jumlahKata + 1;
       }

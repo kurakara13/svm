@@ -6,6 +6,4 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'StanfordTagger\\' => array($vendorDir . '/patrickschur/stanford-nlp-tagger/src/StanfordTagger'),
-    'LanguageDetection\\' => array($vendorDir . '/patrickschur/language-detection/src/LanguageDetection'),
 );

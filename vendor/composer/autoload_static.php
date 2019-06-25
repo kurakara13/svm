@@ -6,33 +6,9 @@ namespace Composer\Autoload;
 
 class ComposerStaticInite775e64eec8a436af27a9705aaddcb7e
 {
-    public static $prefixLengthsPsr4 = array (
-        'S' => 
-        array (
-            'StanfordTagger\\' => 15,
-        ),
-        'L' => 
-        array (
-            'LanguageDetection\\' => 18,
-        ),
-    );
-
-    public static $prefixDirsPsr4 = array (
-        'StanfordTagger\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/patrickschur/stanford-nlp-tagger/src/StanfordTagger',
-        ),
-        'LanguageDetection\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/patrickschur/language-detection/src/LanguageDetection',
-        ),
-    );
-
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInite775e64eec8a436af27a9705aaddcb7e::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInite775e64eec8a436af27a9705aaddcb7e::$prefixDirsPsr4;
 
         }, null, ClassLoader::class);
     }
