@@ -3,7 +3,7 @@
   $lvl = '../../';
   $menu1 = ['', '', 'collapsed', ''];
   $menu2 = ['', '', ''];
-  $menu3 = ['','','','','','','','','','','','','','','','active'];
+  $menu3 = ['','','','','','','','','','','','','','','active'];
   $menuShow = ['', 'show'];
 
   include $lvl."layouts/header.php"
@@ -55,6 +55,11 @@
                             <th>F(7)</th>
                             <th>F(8)</th>
                             <th>F(9)</th>
+                            <th>F(10)</th>
+                            <th>F(11)</th>
+                            <th>F(12)</th>
+                            <th>F(13)</th>
+                            <th>F(14)</th>
                           </tr>
                         </thead>
                         <tbody id="hasil-all">

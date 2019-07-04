@@ -1,0 +1,40 @@
+ABSTRAK
+RANCANG BANGUN SISTEM INFORMASI MANAJEMEN SUMBER DAYA MANUSIA DI PT. SINKONA INDONESIA LESTARI
+
+Oleh :
+GREEN GRANDIS 10113279
+PT.  Sinkona  Indonesia  Lestari  merupakan  perusahaan  yang  memproduksi garam  kina  dan  turunannya  untuk  dipasok 
+ ke  banyak  industri  di  seluruh  dunia, terutama  untuk  industri  farmasi,  minuman,  dan  industri  kimia.  PT.  
+Sinkona Indonesia  Lestari  didirikan  pada  tanggal  25  Oktober  1986  yang  berlokasi  di daerah  Ciater  Kabupaten  
+Subang  Jawa  Barat.  Berdasarkan  hasil  wawancara dengan  Bapak  Dani  Santika  selaku  Asisten  Manager  HRD  di  
+PT.  Sinkona Indonesia Lestari menyatakan bahwa pada proses penerimaan pegawai mengalami kendala  dalam  pengambilan  
+keputusan  tenaga  kerja  khusus  baru,  dikarenakan penyeleksian membutuhkan waktu  yang cukup lama oleh tim penilai 
+dari dalam perusahaan  dan  pihak  ketiga.  Hal  tersebut  mengakibatkan  terjadi  kekosongan posisi,  kerugian  pada  
+kegiatan  operasional  dalam  penurunan  tingkat  kinerja  dan konsekuensi beban perkerjaan menjadi bertambah. Masalah 
+lain ditemukan pada proses  penilaian  kinerja   pegawai   yang  masih  diragukan  karena  berdasarkan absensi, belum 
+adanya standar penilaian kinerja yang mempertimbangkan kriteria- kriteria  lain,  hal  ini  menyebabkan  akan  
+menghambat  pada  evaluasi  penilaian kinerja  pegawai.  Metode  yang  akan  digunakan  untuk  menentukan  penilaian 
+kinerja  yaitu  Analytical  Hierarchy  Process  (AHP).  Berdasarkan  hasil  pengujian blackbox dan pengujian beta dapat 
+disimpulkan bahwa sistem ini dapat membantu Supervisor  Departemen  dan  pihak  terkait  lainnya  dalam  menangani  
+penerimaan pegawai, pengambilan keputusan dalam melakukan penilaian kinerja pegawai.
+Kata Kunci : Analytical Hierarchy Process, Sistem informasi manajemen, sumber daya manusia.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+i

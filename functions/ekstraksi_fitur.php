@@ -152,11 +152,7 @@ class EkstraksiFitur
       for ($a=0; $a < count($word) ; $a++) {
          // && )
         if(!ctype_upper($word[$a])){
-          if(ctype_digit($word[$a])){
-            if(strlen($word[$a]) != 4){
-              $hasil = $hasil + 1;
-            }
-          }else {
+          if(!ctype_digit($word[$a])){
             $hasil = $hasil + 1;
           }
         }
@@ -247,17 +243,63 @@ class EkstraksiFitur
     return $array;
   }
 
-  function line($data)
+
+  function linestart($data)
   {
-    $jumlahKata = 0;
-    $hasil = 0;
-    $array = [];
 
     for ($i=0; $i < count($data); $i++) {
-      $word = Tokenizing::perhitungan($data[$i]);
-      $hasil = $hasil + 1;
+      if($i == 0){
+        $hasil = 1;
+      }else {
+        $hasil = 0;
+      }
+      $array[] = array('hasil' => $hasil);
+    }
 
-      $array[] = array('hasil' => $hasil, 'jumlahKata' => count($data));
+    return $array;
+  }
+
+  function linein($data)
+  {
+    $sukutengah = floor((0 + count($data)-1)/2);
+    $sukutengah2 = ceil((0 + count($data)-1)/2);
+
+    for ($i=0; $i < count($data); $i++) {
+      if($i == $sukutengah || $i == $sukutengah2){
+        $hasil = 1;
+      }else {
+        $hasil = 0;
+      }
+      $array[] = array('hasil' => $hasil);
+    }
+
+    return $array;
+  }
+
+  function lineend($data)
+  {
+    $sukutengah = floor((0 + count($data)-1)/2);
+    $sukutengah2 = ceil((0 + count($data)-1)/2);
+
+    for ($i=0; $i < count($data); $i++) {
+      if($i == (count($data)-1)){
+        $hasil = 1;
+      }else {
+        $hasil = 0;
+      }
+      $array[] = array('hasil' => $hasil);
+    }
+
+    return $array;
+  }
+
+
+  function line($data)
+  {
+
+    for ($i=0; $i < count($data); $i++) {
+      // $hasil = $i/(count($data)-1);
+      $array[] = array('hasil' => $i, 'jumlahKata' => (count($data)-1));
     }
 
     return $array;
@@ -283,16 +325,6 @@ class EkstraksiFitur
     // var_dump($path);    // $pos->setOutputFormat(StanfordTagger::OUTPUT_FORMAT_TSV);
   }
 
-  function roganization($data)
-  {
-
-  }
-
-  function year($data)
-  {
-
-  }
-
   function hasil($data)
   {
     $extraction = new EkstraksiFitur;
@@ -305,6 +337,11 @@ class EkstraksiFitur
     $lowercase = $extraction->lowercase($data);
     $eightdigit = $extraction->eightdigit($data);
     $word = $extraction->word($data);
+    $linestart = $extraction->linestart($data);
+    $linein = $extraction->linein($data);
+    $lineend = $extraction->lineend($data);
+    $line = $extraction->line($data);
+    $year = $extraction->year($data);
 
     $array = [];
     $a = 1;
@@ -319,12 +356,43 @@ class EkstraksiFitur
                           'f(6)' => number_format($lowercase[$i]['hasil']/$lowercase[$i]['jumlahKata'],2),
                           'f(7)' => number_format($punctuation[$i]['hasil']/$punctuation[$i]['jumlahKata'],2),
                           'f(8)' => number_format($eightdigit[$i]['hasil']/$eightdigit[$i]['jumlahKata'],2),
-                          'f(9)' => number_format($word[$i]['hasil']/$word[$i]['jumlahKata'],2)
+                          'f(9)' => number_format($word[$i]['hasil']/$word[$i]['jumlahKata'],2),
+                          'f(10)' => number_format($linestart[$i]['hasil'],2),
+                          'f(11)' => number_format($linein[$i]['hasil'],2),
+                          'f(12)' => number_format($lineend[$i]['hasil'],2),
+                          'f(13)' => number_format($line[$i]['hasil']/$line[$i]['jumlahKata'],2),
+                          'f(14)' => number_format($year[$i]['hasil']/$year[$i]['jumlahKata'],2)
+                          // 'f(10)' => $linestart[$i]['hasil']
                         );
     }
 
     return $array;
 
+  }
+
+  function year($data)
+  {
+    $jumlahKata = 0;
+    $hasil = 0;
+    $array = [];
+
+    for ($i=0; $i < count($data); $i++) {
+      $word = Tokenizing::perhitungan($data[$i]);
+      for ($a=0; $a < count($word) ; $a++) {
+        if (ctype_digit($word[$a])) {
+          if(strlen($word[$a]) == 4){
+            $hasil = $hasil + 1;
+          }
+        }
+        $jumlahKata = $jumlahKata + 1;
+      }
+
+      $array[] = array('hasil' => $hasil, 'jumlahKata' => $jumlahKata);
+      $hasil = 0;
+      $jumlahKata = 0;
+    }
+
+    return $array;
   }
 }
 

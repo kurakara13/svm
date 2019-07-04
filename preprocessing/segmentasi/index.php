@@ -1,10 +1,10 @@
-in
+
 <?php
   $lvl = '../../';
-  $menu1 = ['', '', 'collapsed', ''];
-  $menu2 = ['', '', ''];
-  $menu3 = ['', '', '', '', '', '', '', '', '', '', '', '', 'active'];
-  $menuShow = ['', 'show'];
+  $menu1 = ['', '', '', 'collapsed'];
+  $menu2 = ['', 'active', ''];
+  $menu3 = ['', '', '', ''];
+  $menuShow = ['show', ''];
 
   include $lvl."layouts/header.php"
 ?>
@@ -20,18 +20,18 @@ in
       <!-- col-lg-3 -->
       <div class="col-lg-9 ms-paper-content-container">
         <div class="ms-paper-content">
-          <h1>Ekstraksi Fitur | YEAR</h1>
+          <h1>Segmentasi</h1>
           <section class="ms-component-section">
             <div class="row">
               <div class="col-md-12">
                 <h2 class="section-title no-margin-top">Data</h2>
                 <div class="card">
                   <div class="card-block">
-                    <form id="form-year">
-                      <input type="hidden" name="page" value="year">
+                    <form id="form-segmentasi">
+                      <input type="hidden" name="page" value="segmentasi">
                       <input class="form-control" name="data" type="number" placeholder="Masukan Jumlah Data">
                       <button class="btn btn-primary btn-raised pull-right">
-                        <i class="zmdi zmdi-flower"></i> Submit
+                        <i class="zmdi zmdi-flower"></i> Segmentasi Teks
                       </button>
                     </form>
                   </div>
@@ -45,11 +45,11 @@ in
                       <table class="table table-bordered table-striped">
                         <thead>
                           <tr>
-                            <th style="width:50%;text-align:center">Kalimat</th>
-                            <th style="width:50%;text-align:center">Bobot Teks</th>
+                            <th style="width:20%;text-align:center">Teks</th>
+                            <th style="width:50%">Sesudah</th>
                           </tr>
                         </thead>
-                        <tbody id="hasil-year">
+                        <tbody id="hasil-segmentasi">
                         </tbody>
                       </table>
                     </div>
@@ -70,9 +70,10 @@ in
 
 <?php include $lvl."layouts/footer.php" ?>
 
+
 <script>
 
-$("#form-year").submit(function(e) {
+$("#form-segmentasi").submit(function(e) {
     e.preventDefault();
     var formData = new FormData(this);
 
@@ -82,7 +83,7 @@ $("#form-year").submit(function(e) {
         data: formData,
         success: function (data) {
             console.log(data);
-            $('#hasil-year').html(data);
+            $('#hasil-segmentasi').html(data);
         },
         cache: false,
         contentType: false,

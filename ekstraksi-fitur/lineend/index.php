@@ -3,7 +3,7 @@
   $lvl = '../../';
   $menu1 = ['', '', 'collapsed', ''];
   $menu2 = ['', '', ''];
-  $menu3 = ['active'];
+  $menu3 = ['', '', '', '', '', '', '', '', '', '', '', 'active'];
   $menuShow = ['', 'show'];
 
   include $lvl."layouts/header.php"
@@ -20,15 +20,15 @@
       <!-- col-lg-3 -->
       <div class="col-lg-9 ms-paper-content-container">
         <div class="ms-paper-content">
-          <h1>Ekstraksi Fitur | INITCAPS</h1>
+          <h1>Ekstraksi Fitur | LINE END</h1>
           <section class="ms-component-section">
             <div class="row">
               <div class="col-md-12">
                 <h2 class="section-title no-margin-top">Data</h2>
                 <div class="card">
                   <div class="card-block">
-                    <form id="form-initcaps">
-                      <input type="hidden" name="page" value="initcaps">
+                    <form id="form-lineend">
+                      <input type="hidden" name="page" value="lineend">
                       <input class="form-control" name="data" type="number" placeholder="Masukan Jumlah Data">
                       <button class="btn btn-primary btn-raised pull-right">
                         <i class="zmdi zmdi-flower"></i> Submit
@@ -45,11 +45,11 @@
                       <table class="table table-bordered table-striped">
                         <thead>
                           <tr>
-                            <th style="width:50%">Kalimat</th>
-                            <th style="width:50%">Bobot Teks</th>
+                            <th style="width:50%;text-align:center">Kalimat</th>
+                            <th style="width:50%;text-align:center">Bobot Teks</th>
                           </tr>
                         </thead>
-                        <tbody id="hasil-initcaps">
+                        <tbody id="hasil-lineend">
                         </tbody>
                       </table>
                     </div>
@@ -72,7 +72,7 @@
 
 <script>
 
-$("#form-initcaps").submit(function(e) {
+$("#form-lineend").submit(function(e) {
     e.preventDefault();
     var formData = new FormData(this);
 
@@ -82,7 +82,7 @@ $("#form-initcaps").submit(function(e) {
         data: formData,
         success: function (data) {
             console.log(data);
-            $('#hasil-initcaps').html(data);
+            $('#hasil-lineend').html(data);
         },
         cache: false,
         contentType: false,

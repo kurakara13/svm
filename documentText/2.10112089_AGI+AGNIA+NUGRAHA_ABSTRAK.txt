@@ -1,0 +1,39 @@
+
+
+
+ABSTRAK
+
+RANCANG BANGUN SISTEM KONTROL DAN MONITORING KELEMBABAN DAN PH TANAH UNTUK TANAMAN SAYURAN “CAPSICUM ANNUM L"
+OLEH
+
+AGI AGNIA NUGRAHA 10112089
+Capsicum  Annum  L  atau  yang  biasa  disebut  tanaman  cabe  merah  besar  adalah tumbuhan   perdu   yang   termasuk  
+ Family   Solanaceae.   Jenis   sayuran   satu   ini merupakan  salah  satu  komoditas  hortikultura  yang  banyak  
+dibudidayakan  oleh petani  di  Indonesia  karena  memiliki  harga  jual  yang  tinggi.  Dalam  budidaya tanaman 
+sayuran Capsicum Annum L petani melakukan pembudidayaan tanaman sayuran Capsicum Anum L dengan cara langsung menanam 
+tanaman tersebut tanpa memperhatikan  nilai  kelembaban  dan  pH  tanahnya,  petani  hanya  melihat  dari pengalaman  
+dan  perkiraan.  Hal  ini  dapat  mengakibatkan  tanaman  yang  sudah ditanam  tidak  dapat  tumbuh  dan  berkembang  
+dengan  baik,  hal  ini  pun  dapat mengakibatkan hasil produksi tidak optimum. Sudah ada alat yang bisa mengatahui 
+nilai pH tanah tetapi alat yang sudah masih terbilang mahal. Aplikasi ini dirancang dengan menggabungkan 
+mikrokontroller arduino Uno dengan sensor pH tanah dan sensor kelembaban tanah yang selanjutnya dikirim kedalam website 
+menggunakan modul SIM/GPRS Shield, dan di website tersebut dapat memonitoring nilai pH dan kelembaban  tanah.   
+Berdasarkan   hasil  pengujian   yang  telah  dilakukan   dapat disimpulkan  bahwa  aplikasi  sistem  kontrol  dan  
+monitoring  kelembaban  dan  pH tanah  untuk  tanaman  sayuran  Capsicum  Annum  L  ini  cukup  membantu  petani dalam  
+ melakukan   monitoring   kelembaban   dan   pH   tanah   serta   juga   dapat mengontrol tanah yang sesuai untuk 
+ditanami tanaman sayuran Capsicum Annum
+L.   Pada   perkembangan   selanjutnya   diharapkan   dapat   memonitor   pH   dan kelembaban tanah di berbagai titik 
+wilayah.
+Kata Kunci : Tanaman, Kelembaban, pH, Arduino, Kontrol, Monitoring
+
+
+
+
+
+
+
+
+
+
+
+
+i

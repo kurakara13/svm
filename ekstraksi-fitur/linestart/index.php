@@ -1,10 +1,10 @@
 
 <?php
   $lvl = '../../';
-  $menu1 = ['', '', '', 'collapsed'];
-  $menu2 = ['', 'active', ''];
-  $menu3 = ['', '', '', ''];
-  $menuShow = ['show', ''];
+  $menu1 = ['', '', 'collapsed', ''];
+  $menu2 = ['', '', ''];
+  $menu3 = ['', '', '', '', '', '', '', '', '', 'active'];
+  $menuShow = ['', 'show'];
 
   include $lvl."layouts/header.php"
 ?>
@@ -20,18 +20,18 @@
       <!-- col-lg-3 -->
       <div class="col-lg-9 ms-paper-content-container">
         <div class="ms-paper-content">
-          <h1>Splitting</h1>
+          <h1>Ekstraksi Fitur | LINE START</h1>
           <section class="ms-component-section">
             <div class="row">
               <div class="col-md-12">
                 <h2 class="section-title no-margin-top">Data</h2>
                 <div class="card">
                   <div class="card-block">
-                    <form id="form-splitting">
-                      <input type="hidden" name="page" value="splitting">
+                    <form id="form-linestart">
+                      <input type="hidden" name="page" value="linestart">
                       <input class="form-control" name="data" type="number" placeholder="Masukan Jumlah Data">
                       <button class="btn btn-primary btn-raised pull-right">
-                        <i class="zmdi zmdi-flower"></i> Splitting Teks
+                        <i class="zmdi zmdi-flower"></i> Submit
                       </button>
                     </form>
                   </div>
@@ -45,11 +45,11 @@
                       <table class="table table-bordered table-striped">
                         <thead>
                           <tr>
-                            <th style="width:50%">Sebelum</th>
-                            <th style="width:50%" colspan="2">Sesudah</th>
+                            <th style="width:50%;text-align:center">Kalimat</th>
+                            <th style="width:50%;text-align:center">Bobot Teks</th>
                           </tr>
                         </thead>
-                        <tbody id="hasil-splitting">
+                        <tbody id="hasil-linestart">
                         </tbody>
                       </table>
                     </div>
@@ -70,10 +70,9 @@
 
 <?php include $lvl."layouts/footer.php" ?>
 
-
 <script>
 
-$("#form-splitting").submit(function(e) {
+$("#form-linestart").submit(function(e) {
     e.preventDefault();
     var formData = new FormData(this);
 
@@ -83,7 +82,7 @@ $("#form-splitting").submit(function(e) {
         data: formData,
         success: function (data) {
             console.log(data);
-            $('#hasil-splitting').html(data);
+            $('#hasil-linestart').html(data);
         },
         cache: false,
         contentType: false,

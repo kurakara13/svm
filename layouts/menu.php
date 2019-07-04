@@ -27,8 +27,8 @@
               <i class="fa fa-arrow-circle-right"></i> Filtering</a>
           </li>
           <li>
-            <a class="withripple <?php echo $menu2[1] ?>" href="<?php echo $lvl ?>preprocessing/splitting">
-              <i class="fa fa-arrow-circle-right"></i> Splitting</a>
+            <a class="withripple <?php echo $menu2[1] ?>" href="<?php echo $lvl ?>preprocessing/segmentasi">
+              <i class="fa fa-arrow-circle-right"></i> Segmentasi</a>
           </li>
           <li>
             <a class="withripple <?php echo $menu2[2] ?>" href="<?php echo $lvl ?>preprocessing/tokenizing">
@@ -77,31 +77,27 @@
               <i class="fa fa-arrow-circle-right"></i> WORD</a>
           </li>
           <li>
-            <a class="withripple <?php echo $menu3[9] ?>" href="<?php echo $lvl ?>ekstraksi-fitur/punctuation">
-              <i class="fa fa-arrow-circle-right"></i> LINE_START</a>
+            <a class="withripple <?php echo $menu3[9] ?>" href="<?php echo $lvl ?>ekstraksi-fitur/linestart">
+              <i class="fa fa-arrow-circle-right"></i> LINE START</a>
           </li>
           <li>
-            <a class="withripple <?php echo $menu3[10] ?>" href="<?php echo $lvl ?>ekstraksi-fitur/punctuation">
-              <i class="fa fa-arrow-circle-right"></i> LINE_IN</a>
+            <a class="withripple <?php echo $menu3[10] ?>" href="<?php echo $lvl ?>ekstraksi-fitur/linein">
+              <i class="fa fa-arrow-circle-right"></i> LINE IN</a>
           </li>
           <li>
-            <a class="withripple <?php echo $menu3[11] ?>" href="<?php echo $lvl ?>ekstraksi-fitur/punctuation">
-              <i class="fa fa-arrow-circle-right"></i> LINE_END</a>
+            <a class="withripple <?php echo $menu3[11] ?>" href="<?php echo $lvl ?>ekstraksi-fitur/lineend">
+              <i class="fa fa-arrow-circle-right"></i> LINE END</a>
           </li>
           <li>
-            <a class="withripple <?php echo $menu3[12] ?>" href="<?php echo $lvl ?>ekstraksi-fitur/punctuation">
-              <i class="fa fa-arrow-circle-right"></i> PERSON</a>
+            <a class="withripple <?php echo $menu3[12] ?>" href="<?php echo $lvl ?>ekstraksi-fitur/line">
+              <i class="fa fa-arrow-circle-right"></i> LINE</a>
           </li>
           <li>
-            <a class="withripple <?php echo $menu3[13] ?>" href="<?php echo $lvl ?>ekstraksi-fitur/punctuation">
-              <i class="fa fa-arrow-circle-right"></i> ORGANIZATION</a>
-          </li>
-          <li>
-            <a class="withripple <?php echo $menu3[14] ?>" href="<?php echo $lvl ?>ekstraksi-fitur/punctuation">
+            <a class="withripple <?php echo $menu3[13] ?>" href="<?php echo $lvl ?>ekstraksi-fitur/year">
               <i class="fa fa-arrow-circle-right"></i> YEAR</a>
           </li>
           <li>
-            <a class="withripple <?php echo $menu3[15] ?>" href="<?php echo $lvl ?>ekstraksi-fitur/hasil">
+            <a class="withripple <?php echo $menu3[14] ?>" href="<?php echo $lvl ?>ekstraksi-fitur/hasil">
               <i class="fa fa-arrow-circle-right"></i> HASIL</a>
           </li>
         </ul>

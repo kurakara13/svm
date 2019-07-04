@@ -4,7 +4,7 @@
  *
  */
 
-class Spliting
+class Segmentasi
 {
 
   function perhitungan($data)
